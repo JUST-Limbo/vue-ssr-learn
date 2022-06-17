@@ -20,8 +20,10 @@ const routes = [
   }
 ]
 
-const router = new VueRouter({
-  routes
-})
-
-export default router
+// 每次用户请求都要创建router实例
+export default function createRouter () {
+  return new VueRouter({
+    mode: 'history',
+    routes,
+  })
+}
